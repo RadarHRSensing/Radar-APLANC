@@ -31,7 +31,7 @@ from utils_sig import *
 from IrrelevantPowerRatio import IrrelevantPowerRatio
 from rf.model import RF_conv_decoder
 from rf.proc import rotateIQ
-from data.datasets import OurRF
+from data.datasets import RHB
 from utils.eval import eval_RHB
 from loss import ContrastLoss
 
@@ -248,11 +248,11 @@ def main(args):
         print(f"There are {len(test_files)} test files. They are : {test_files}")
 
     # Dataset
-    train_dataset = OurRF(datapath=destination_folder,
+    train_dataset = RHB(datapath=destination_folder,
                                      datapaths=train_files, frame_length_ppg=900)  # default = 128
-    val_dataset = OurRF(datapath=destination_folder,
+    val_dataset = RHB(datapath=destination_folder,
                                    datapaths=val_files, frame_length_ppg=900)
-    test_dataset = OurRF(datapath=destination_folder,
+    test_dataset = RHB(datapath=destination_folder,
                                     datapaths=test_files, frame_length_ppg=900)
 
     # Select the device
